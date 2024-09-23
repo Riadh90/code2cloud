@@ -20,7 +20,7 @@ jobs:
           id: build-docker-image
           run: |
             ls -la 
-            docker build . -f Dockerfile -t riadh90/code2cloud-tag:tagname
+            docker build . -f code2cloud-tagwithwf -t code2cloud-tag:tagname
         - name: push the docker image
           id: push-docker-image
-          run: docker push ${{secrets.DOCKERHUB_USERNAME}}/riadh90/code2cloud-tag:latest
+          run: docker push ${{secrets.DOCKERHUB_USERNAME}}/code2cloud-tag:latest
