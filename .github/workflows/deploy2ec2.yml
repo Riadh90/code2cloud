@@ -18,9 +18,7 @@ jobs:
             docker login -u $username -p $password 
         - name: build the docker image
           id: build-docker-image
-          run: |
-            ls -la 
-            docker build . -f code2cloud-tagwithwf -t code2cloud-tag:tagname
+          run: docker build -t code2cloud-tag .
         - name: push the docker image
           id: push-docker-image
           run: docker push ${{secrets.DOCKERHUB_USERNAME}}/code2cloud-tag:latest
