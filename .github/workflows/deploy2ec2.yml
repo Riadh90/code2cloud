@@ -21,4 +21,6 @@ jobs:
           run: docker build -t code2cloud-tag .
         - name: push the docker image
           id: push-docker-image
-          run: docker push ${{secrets.DOCKERHUB_USERNAME}}/code2cloud-tag:latest
+          run: |
+            docker tag code2cloud-tag ${{secrets.DOCKERHUB_USERNAME}}/code2cloud-tag:latest
+            docker push ${{secrets.DOCKERHUB_USERNAME}}/code2cloud-tag:latest
