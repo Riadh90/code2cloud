@@ -28,6 +28,6 @@ jobs:
 
     - name: Push Image to Docker Hub
       run: |
-        docker tag code2cloud-tag ${{ secrets.DOCKERHUB_USERNAME }}/code2cloud-tag
-        docker push ${{ secrets.DOCKERHUB_USERNAME }}/riadh90/code2cloud-tag
+        docker tag code2cloud-tag ${{ secrets.DOCKERHUB_USERNAME }}/riadh90/code2cloud-tag:latest
+        docker push ${{ secrets.DOCKERHUB_USERNAME }}/riadh90/code2cloud-tag:latest
 
