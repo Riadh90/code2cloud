@@ -22,4 +22,7 @@ jobs:
         run: docker build -t code2cloud-tag .
       - name: Push the Docker Image
         id: push-docker-image
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/code2cloud-tag:latest
+        run: |
+          TAGGED_IMAGE="${{ secrets.DOCKERHUB_USERNAME }}/code2cloud-tag:latest"
+          docker tag code2cloud-tag "$TAGGED_IMAGE"
+          docker push "$TAGGED_IMAGE"
